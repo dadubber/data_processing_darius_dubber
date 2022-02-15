@@ -1,0 +1,8 @@
+# Configuration file for the workflow
+
+# Link for downloading the data
+data_link: https://archive.ics.uci.edu/ml/machine-learning-databases/00344/Activity%20recognition%20exp.zip
+# Path to the data folder
+data_folder: tmp/data
+# Chosen algorithms
+algorithms: ['random_forest', 'svm', 'knn', 'naive_bayes']
