@@ -39,6 +39,14 @@ def create_clf_pipeline(clf_name: str) -> pipeline.Pipeline:
 
 
 def tune_hyper_parameters(clf_name: str, hyper_parameters: dict, labels: pd.Series, features: pd.DataFrame):
+    """
+    Tunes the hyper parameters for a given classifier
+    :param clf_name: The name of the classifier
+    :param hyper_parameters: A dictionary containing the parameters
+    :param labels: The labels of the dataset
+    :param features: The extracted features
+    :return:
+    """
     # Create pipeline
     pipe = create_clf_pipeline(clf_name)
     # create gridsearch object
