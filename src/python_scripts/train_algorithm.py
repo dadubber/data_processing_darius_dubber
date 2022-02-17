@@ -6,6 +6,8 @@ from sklearn.metrics import accuracy_score, f1_score, jaccard_score, confusion_m
 import pandas as pd
 
 # logging
+from snakemake.utils import report
+
 sys.stderr = open(snakemake.log[0], 'w')
 
 
@@ -42,12 +44,17 @@ def main():
     # validate the classifier
     accuracy, f1, jaccard, cnf_matrix, perm_importance = validate_algorithm(tuned_clf, test_features, test_labels)
 
+    # Write obtained scores to given output file
+    scores = pd.DataFrame({'scores': ['accuracy', 'f1-score weighted', 'jaccard_score weighted'],
+                           'results': [accuracy, f1, jaccard]})
+    scores.to_csv(snakemake[0])
+
     # Write obtained confusion matrix and feature importance to output files
-    with open(snakemake.output[0], 'wb') as output_file:
+    with open(snakemake.output[1], 'wb') as output_file:
         pickle.dump(cnf_matrix, output_file)
 
-    with open(snakemake.output[1], 'wb') as output_file:
-        pickle.dump(perm_importance, output_file)
+    most_important_features_df = pd.DataFrame(perm_importance)
+    most_important_features_df.to_csv(snakemake.output[2])
 
 
 if __name__ == '__main__':

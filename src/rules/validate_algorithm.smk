@@ -1,11 +1,12 @@
 # rule for training the algorithms with the tuned parameters with 10-fold cross validation
-rule train_algorithm:
+rule validate_algorithm:
     input:
         'output/Activity_recognition_exp_Watch_accelerometer_labels_test.csv',
         'output/Activity_recognition_exp_Watch_accelerometer_features_test.csv',
         'output/Activity_recognition_exp_Watch_accelerometer_tuned_{algorithm}.sav'
     output:
-        'output/{algorithm}_confusion_matrix.sav',
+        report('output/{algorithm}_results.txt'),
+        '/{algorithm}_confusion_matrix.sav',
         'output/{algorithm}_most_important_features.csv'
     benchmark:
         'benchmarks/train_algorithm_{algorithm}.txt'

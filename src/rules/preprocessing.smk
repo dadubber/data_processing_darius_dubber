@@ -1,13 +1,13 @@
 # Rule to download and unzip the data
-# rule get_data:
-#     input:
-#         config['data_link']
-#     output:
-#         "tmp/data/{data_set}"
-#     log:
-#         "logs/get_data_{data_set}.log"
-#     shell:
-#         'wget {input} -o {output}.zip && unzip -d {output} {output}.zip >{log} 2>&1'
+rule get_data:
+    input:
+        config['data_link']
+    output:
+        temp("tmp/data/Activity_recognition_exp")
+    log:
+        "logs/get_data_Activity_recognition_exp.log"
+    shell:
+        'wget {input} -o {output}.zip && unzip -d {output} {output}.zip >{log} 2>&1'
 
 # Rule to prepare the data for preprocessing
 rule prepare_data:

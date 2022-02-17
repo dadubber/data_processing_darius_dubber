@@ -12,11 +12,11 @@ def get_final_output():
     :return:
     """
     # obtain the output images of the important features for each algorithm
-    final_output = expand('output/{algorithm}_confusion_matrix.sav',
+    final_output = expand(['output/{algorithm}_most_important_features.png', 'output/{algorithm}_confusion_matrix.png'],
         algorithm=config['algorithms'])
 
     # obtain the output images of the confusion matrices and add them to the final output
-    final_output + expand('output/{algorithm}_most_important_features.csv',
-        algorithm=config['algorithms'])
+    # final_output + expand('output/{algorithm}_confusion_matrix.png',
+    #     algorithm=config['algorithms'])
 
     return final_output
