@@ -94,7 +94,7 @@ output folder with as name 'best_params_{classifier}'. The confusion matrices ca
 If we compare the heatmaps from the workflow with the non-workflow based we can see that the performance of the workflow
 is higher. But this is probably a little biased. 
 
-The workflow heatmaps:
+The workflow heatmaps: <br>
 ![Alt text](output/random_forest_confusion_matrix.png)
 ![Alt text](output/naive_bayes_confusion_matrix.png)
 ![Alt text](output/knn_confusion_matrix.png)
