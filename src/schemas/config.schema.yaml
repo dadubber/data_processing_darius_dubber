@@ -1,0 +1,108 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description: snakemake configuration file
+
+type: object
+
+properties:
+  data_link:
+    type: array
+    items:
+      type:
+        string
+
+  data_set:
+    type: array
+    items:
+      type:
+        string
+
+  acc_csv:
+    type: array
+    items:
+      type:
+        string
+
+  sampling_frequencies:
+    type: object
+    properties:
+      gear_1:
+        type: number
+      gear_2:
+        type: number
+      lgwatch_1:
+        type: number
+      lgwatch_2:
+        type: number
+
+  resampled_frequency:
+    type: number
+
+  algorithms:
+    type: object
+    properties:
+
+      random_forest:
+        type: object
+        properties:
+          clf__n_estimators:
+            type: array
+            items:
+              type: integer
+
+          clf__max_depth:
+            type: array
+            items:
+              type: integer
+
+          clf__min_samples_split:
+            type: array
+            items:
+              type: integer
+
+          clf__min_samples_leaf:
+            type: array
+            items:
+              type: integer
+
+      svm:
+        type: object
+        properties:
+          clf__c:
+            type: array
+            items:
+              type: integer
+
+          clf__kernel:
+            type: array
+            items:
+              type: string
+
+          clf__degree:
+            type: array
+            items:
+              type: integer
+
+      knn:
+        type: object
+        properties:
+          clf__n_neighbours:
+            type: array
+            items:
+              type:
+                integer
+
+          clf__leaf_size:
+            type: array
+            items:
+              type:
+                integer
+
+      naive_bayes:
+        type: object
+        properties:
+          remove_corr_features__threshold:
+            type: array
+            items:
+              type:
+                number

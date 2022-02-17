@@ -1,8 +1,41 @@
-# Configuration file for the workflow
+#data_link: ['https://archive.ics.uci.edu/ml/machine-learning-databases/00344/Activity%20recognition%20exp.zip']
+#
+#data_set: ['Activity_recognition_exp']
+#acc_csv: ['Watch-accelerometer']
 
-# Link for downloading the data
-data_link: https://archive.ics.uci.edu/ml/machine-learning-databases/00344/Activity%20recognition%20exp.zip
-# Path to the data folder
-data_folder: tmp/data
-# Chosen algorithms
-algorithms: ['random_forest', 'svm', 'knn', 'naive_bayes']
+sampling_frequencies:
+  gear_1: 100
+  gear_2: 100
+  lgwatch_1: 200
+  lgwatch_2: 200
+
+resampled_frequency:
+  10
+
+algorithms:
+  random_forest:
+    clf__n_estimators:
+      [100]
+    clf__max_depth:
+      [10,20,30,40,50,60,70,80,90,100,110]
+    clf__min_samples_split:
+      [2,5,10]
+    clf__min_samples_leaf:
+      [1,2,4]
+  svm:
+    clf__C:
+      [1,10]
+    clf__kernel:
+      ['linear','poly','rbf']
+    clf__degree:
+      [3,6,12]
+  knn:
+    clf__n_neighbors:
+      [3,5,10]
+    clf__leaf_size:
+      [15,30,60]
+
+  naive_bayes:
+    remove_corr_features__threshold:
+      [0.7, 0.8, 0.9]
+
