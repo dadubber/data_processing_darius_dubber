@@ -1,0 +1,1 @@
+{'clf__leaf_size': 15, 'clf__n_neighbors': 3}

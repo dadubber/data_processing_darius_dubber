@@ -1,0 +1,4 @@
+,scores,results
+0,accuracy,0.8620689655172413
+1,f1-score weighted,0.8625789079144639
+2,jaccard_score weighted,0.7649684556218131

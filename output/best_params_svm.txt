@@ -1,0 +1,1 @@
+{'clf__C': 10, 'clf__degree': 3, 'clf__kernel': 'rbf'}

@@ -47,7 +47,7 @@ def main():
     # Write obtained scores to given output file
     scores = pd.DataFrame({'scores': ['accuracy', 'f1-score weighted', 'jaccard_score weighted'],
                            'results': [accuracy, f1, jaccard]})
-    scores.to_csv(snakemake[0])
+    scores.to_csv(snakemake.output[0])
 
     # Write obtained confusion matrix and feature importance to output files
     with open(snakemake.output[1], 'wb') as output_file:

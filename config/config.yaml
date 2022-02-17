@@ -1,7 +1,4 @@
-#data_link: ['https://archive.ics.uci.edu/ml/machine-learning-databases/00344/Activity%20recognition%20exp.zip']
-#
-#data_set: ['Activity_recognition_exp']
-#acc_csv: ['Watch-accelerometer']
+data_link: 'https://archive.ics.uci.edu/ml/machine-learning-databases/00344/Activity%20recognition%20exp.zip'
 
 sampling_frequencies:
   gear_1: 100
@@ -11,6 +8,10 @@ sampling_frequencies:
 
 resampled_frequency:
   10
+
+acc_filename: 'Watch_accelerometer.csv'
+
+data_folder: "Activity_recognition_exp"
 
 algorithms:
   random_forest:

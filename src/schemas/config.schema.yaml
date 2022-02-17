@@ -6,22 +6,7 @@ type: object
 
 properties:
   data_link:
-    type: array
-    items:
-      type:
-        string
-
-  data_set:
-    type: array
-    items:
-      type:
-        string
-
-  acc_csv:
-    type: array
-    items:
-      type:
-        string
+    type: string
 
   sampling_frequencies:
     type: object

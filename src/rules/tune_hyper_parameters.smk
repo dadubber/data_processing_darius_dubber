@@ -4,7 +4,9 @@ rule tune_hyper_parameters:
         features = 'output/Activity_recognition_exp_Watch_accelerometer_features_train.csv',
         labels = 'output/Activity_recognition_exp_Watch_accelerometer_labels_train.csv'
     output:
-        'output/Activity_recognition_exp_Watch_accelerometer_tuned_{algorithm}.sav'
+        'output/Activity_recognition_exp_Watch_accelerometer_tuned_{algorithm}.sav',
+        report('output/best_params_{algorithm}.txt', caption='report/results1.rst', category="Step 11",
+            subcategory='{algorithm}')
     benchmark:
         'benchmarks/tune_hyper_parameters_Activity_recognition_exp_Watch_accelerometer_{algorithm}.txt'
     threads: 4

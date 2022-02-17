@@ -60,9 +60,13 @@ def main():
     # tune hyper parameters
     clf = tune_hyper_parameters(clf_name, hyper_parameters, labels, features)
 
-    # write best found parameters to output file
+    # write optimized algorithm to given file
     with open(snakemake.output[0], 'wb') as output_file:
         pickle.dump(clf, output_file)
+
+    # Write best found parameters to given file
+    with open(snakemake.output[1], 'w') as output_file:
+        output_file.write(str(clf.best_params_))
     return
 
 

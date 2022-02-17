@@ -15,8 +15,9 @@ def plot_most_important_features(most_important_features, classifier, data_set, 
     ax = sns.barplot(x='Features', y='Permutation importance', ci=None,
                      data=most_important_features_df.nlargest(n=5, columns=['Permutation importance']))
     ax.set_title('Top 5 important features of {}\n'.format(data_set, classifier))
-    ax.set_xlabel('\nFeatures')
+    ax.set_xlabel('Features')
     ax.set_ylabel('Permutation importance')
+    ax.tick_params(axis='x', which='major', labelsize=8)
     plt.savefig(output_file)
 
 

@@ -1,20 +1,31 @@
-# Rule to download and unzip the data
+# Rule to download the data
 rule get_data:
-    input:
-        config['data_link']
     output:
-        temp("tmp/data/Activity_recognition_exp")
+        temp("tmp/data/{}.zip".format(config['data_folder']))
     log:
         "logs/get_data_Activity_recognition_exp.log"
     shell:
-        'wget {input} -o {output}.zip && unzip -d {output} {output}.zip >{log} 2>&1'
+        "wget {0} -o {1} >{2} 2>&1".format(config['data_link'], '{output}', '{log}')
+
+# Rule to unzip the data
+rule unzip_data:
+    input:
+        "tmp/data/{}.zip".format(config['data_folder'])
+    output:
+        temp("tmp/data/{}".format(config['data_folder']))
+    log:
+        "logs/unzip_data_{}.log".format(config['data_folder'])
+    shell:
+        'unzip -d tmp/data/Activity_recognition_exp tmp/data/Activity_recognition_exp.zip >{log} 2>&1'
 
 # Rule to prepare the data for preprocessing
 rule prepare_data:
     input:
-        "tmp/data/Activity_recognition_exp/Watch_accelerometer.csv"
+        "tmp/data/{}".format(config['data_folder'])
     output:
         'output/Activity_recognition_exp_Watch_accelerometer.sav'
+    params:
+        acc_filename = config['acc_filename']
     log:
         "logs/prepare_data_Activity_recognition_exp_Watch_accelerometer.log"
     script:
