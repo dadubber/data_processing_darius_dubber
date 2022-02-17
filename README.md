@@ -81,3 +81,25 @@ In the graph below you will see for example the found important features for ran
 ![Alt text](output/random_forest_most_important_features.png)
 The graph below shows the obtained 10 most important features for the random forest non workflow based.
 ![Alt text](images/permutation_importance_non_snake_make.png)
+
+You can see that most of the features are similar. The difference can be explained because the non-workflow based used 
+cross validation and in the workflow based method the data was splitted in a training and test set.
+The workflow-based approach will probably more interesting if the amount of data is improved.
+
+The workflow will also produce besides the calculation of the most important features, the best found parameters for the
+classifier, confusion matrices, the jaccard score, f1 score and the accuracy. The best parameters can be found in the
+output folder with as name 'best_params_{classifier}'. The confusion matrices can also be found there as 
+{classifier}_confusion_matrix.png. The other metrics can be found in the same file {classifier}_results.txt.
+
+If we compare the heatmaps from the workflow with the non-workflow based we can see that the performance of the workflow
+is higher. But this is probably a little biased. 
+
+The workflow heatmaps:
+![Alt text](output/random_forest_confusion_matrix.png)
+![Alt text](output/naive_bayes_confusion_matrix.png)
+![Alt text](output/knn_confusion_matrix.png)
+![Al text](output/svm_confusion_matrix.png)
+
+The non-workflow based heatmaps:
+![Alt text](images/heatmaps_non_snake_make.png)
+
